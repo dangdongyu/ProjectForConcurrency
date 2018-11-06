@@ -11,6 +11,7 @@
 
     <modules>
         <module>../system</module>
-        <module>../server</module>
+        <module>../project-server</module>
+        <module>../project-business-domain</module>
     </modules>
 </project>
