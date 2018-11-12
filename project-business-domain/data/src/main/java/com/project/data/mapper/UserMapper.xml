@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--为Mapper接口方法提供sql语句-->
+<mapper namespace="com.project.data.mapper.UserMapper">
+    <!--映射实体对象-->
+    <resultMap id="User" type="com.project.data.entity.User">
+        <id property="id" column="id" javaType="string"/>
+        <result property="name" column="name" javaType="string"/>
+        <result property="password" column="password" javaType="string"/>
+        <result property="note" column="note" javaType="string"/>
+    </resultMap>
+
+    <insert id="insertUser">
+        INSERT into user(name,password,note)
+        values (#{user.name},#{user.password},#{user.note})
+    </insert>
+
+    <select id="findByName" parameterType="string" resultMap="User">
+      SELECT * from user where name = #{name}
+    </select>
+</mapper>
